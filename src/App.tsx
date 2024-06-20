@@ -1,11 +1,17 @@
 import "./App.css";
+
 // Import component related to jotai (atom state)
 // import InsertField from "./components/atom/InsertField ";
 // import TodoList from "./components/atom/TodoList";
 
 // Import component related to (Redux state)
-import InsertInput from "./components/redux/InsertInput";
-import List from "./components/redux/List";
+// import InsertInput from "./components/redux/InsertInput";
+// import List from "./components/redux/List";
+
+// Import component related to (mongez state)
+import Input from './components/mongez/Input'
+// import Todos from './components/mongez/Todos'
+
 
 function App() {
   return (
@@ -17,8 +23,14 @@ function App() {
         <TodoList /> */}
 
         {/* this component works with redux sate */}
-        <InsertInput />
-        <List />
+        {/* <InsertInput />
+        <List /> */}
+
+
+        {/* this component works with mongez state */}
+        <Input />
+        {/* <Todos /> */}
+
       </div>
     </>
   );
