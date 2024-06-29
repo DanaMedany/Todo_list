@@ -38,9 +38,10 @@ export const todoSlice = createSlice({
     ) => {
       const { currentUpdate, indexToUpdate } = action.payload;
       state.todo = currentUpdate;
-      state.todoList.map((todo, index) =>
-        index === indexToUpdate ? [...state.todoList, currentUpdate] : todo
+      const todoIndex = state.todoList.findIndex(
+        (_, index) => index === indexToUpdate
       );
+      state.todoList[todoIndex] = currentUpdate;
     },
   },
 });

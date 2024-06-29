@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { remove, update } from "../../features/todoList/todoSlice";
 import { RootState } from "../../store";
+import { MdEdit, MdDelete } from "react-icons/md";
 
 const List = () => {
   // Redux state and dispatch
   const listTodo = useSelector((state: RootState) => state.todo.todoList);
   const dispatch = useDispatch();
-
-  // Temporary state to store the update todo value for editing
-  const [updateTodo, setUpdateTodo] = useState("");
 
   // to save todos in local storage
   useEffect(() => {
@@ -25,28 +23,31 @@ const List = () => {
   // Update to todo
   const handleUpdate = (indexToUpdate: number) => {
     const currentUpdate = listTodo[indexToUpdate];
-    setUpdateTodo(currentUpdate);
+    // setUpdateTodo(currentUpdate);
     dispatch(update({ currentUpdate, indexToUpdate }));
+    // console.log(currentUpdate);
   };
 
   return (
     <div className=" w-2/5 mx-auto mt-5">
       <ul className="list-disc ml-auto ">
         {listTodo.map((value: string, index: number) => (
-          <div key={index} className="flex items-center justify-between">
-            <li className=" mb-2 p-2 text-2xl">{value}</li>
-            <span
-              className="bg-[#FF4433] px-2 py-1 cursor-pointer rounded-sm"
-              onClick={() => handleRemove(index)}
-            >
-              Delete
-            </span>
-            <span
-              className="bg-[#FF4433] px-2 py-1 cursor-pointer rounded-sm"
-              onClick={() => handleUpdate(index)}
-            >
-              update
-            </span>
+          <div
+            key={index}
+            className="bg-[#4b4bc3] flex items-center justify-between rounded-md mb-4 w-[80%]"
+          >
+            <li className="mb-2 p-2 text-2xl flex items-center">{value}</li>
+
+            <div className="flex mr-4 cursor-pointer">
+              <MdDelete
+                className="text-xl"
+                onClick={() => handleRemove(index)}
+              />
+              <MdEdit
+                className="text-xl ml-5"
+                onClick={() => handleUpdate(index)}
+              />
+            </div>
           </div>
         ))}
       </ul>
