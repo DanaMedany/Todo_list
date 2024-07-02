@@ -1,5 +1,6 @@
 {
   "title": "Todo App",
   "add": "add",
-  "placeholder": "Enter your action"
+  "placeholder": "Enter your action",
+  "prompt": "Enter the new value:"
 }

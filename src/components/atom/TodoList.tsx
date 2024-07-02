@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { listTodoAtom } from "../../state/atom";
 import { MdEdit, MdDelete } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const TodoList = () => {
+  const { t } = useTranslation();
+
   // Jotai state
   const [listTodo, setListTodo] = useAtom(listTodoAtom);
 
@@ -23,7 +26,7 @@ const TodoList = () => {
   //Update list
   const handleUpdate = (indexToUpdate: number) => {
     // update logic here
-    const newValue = prompt("Enter the new value:", listTodo[indexToUpdate]);
+    const newValue = prompt(t("prompt"), listTodo[indexToUpdate]);
     if (newValue) {
       const updatedList = listTodo.map((item, index) =>
         index === indexToUpdate ? newValue : item
