@@ -1,16 +1,16 @@
 import "./App.css";
 
 // Import component related to jotai (atom state)
-import InsertField from "./components/atom/InsertField ";
-import TodoList from "./components/atom/TodoList";
+// import InsertField from "./components/atom/InsertField ";
+// import TodoList from "./components/atom/TodoList";
 
 // Import component related to (Redux state)
 // import InsertInput from "./components/redux/InsertInput";
 // import List from "./components/redux/List";
 
 // Import component related to (mongez state)
-// import Input from './components/mongez/Input'
-// import Todos from './components/mongez/Todos'
+import Input from "./components/mongez/Input";
+import Todos from "./components/mongez/Todos";
 
 import { useTranslation } from "react-i18next";
 import { Languages } from "./constant";
@@ -48,16 +48,16 @@ function App() {
         </div>
 
         {/* this component works with atom sate */}
-        <InsertField />
-        <TodoList />
+        {/* <InsertField />
+        <TodoList /> */}
 
         {/* this component works with redux sate */}
         {/* <InsertInput />
         <List /> */}
 
         {/* this component works with mongez state */}
-        {/* <Input /> */}
-        {/* <Todos /> */}
+        <Input />
+        <Todos />
       </div>
     </>
   );

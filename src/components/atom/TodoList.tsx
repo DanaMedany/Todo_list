@@ -37,7 +37,7 @@ const TodoList = () => {
 
   return (
     <div className=" w-2/5 mx-auto mt-5">
-      <ul className="list-disc ml-auto ">
+      <ul className="list-none ml-auto ">
         {listTodo.map((value: string, index: number) => (
           <div
             key={index}
